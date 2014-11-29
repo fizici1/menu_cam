@@ -1,12 +1,12 @@
 Menu_cam
 ========
 
-Ce programme fourni un menu qui s'affiche dur la platine LCD 16x2 de Adafruit.
+Ce programme fourni un menu qui s'affiche sur la platine LCD 16x2 de Adafruit.
 Il est basé sur le projet RaspberryPiLcdMenu.
 
 L'arborescence du menu est décrite dans le fichier lcdmenu.xml.
 
-On peut lancer le scrip python au démarrage à partir de /etc/init.d en utilisant le fichier init fourni.
+On peut lancer le script python au démarrage à partir de /etc/init.d en utilisant le fichier init fourni.
 
 Pour commencer il faut mettre ces fichiers dans un dossier puis obtenir le code de Adafruit en copiant 
 Adafruit-Raspberry-Pi-Python-Code/Adafruit_CharLCDPlate/ dans le même répertoire.
