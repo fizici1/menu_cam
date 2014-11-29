@@ -1,0 +1,23 @@
+<application>
+  <settings lcdColor="White" lcdBackground="On" />
+  <folder text="System Info">
+    <widget text="Show Date/Time" function="ShowDateTime" />
+    <widget text="Set Date/Time" function="SetDateTime" />
+    <folder text="Network">
+      <widget text="IP Address" function="ShowIPAddress" />
+    </folder>
+    <folder text="LCD Color">
+      <widget text="On" function="LcdOn" />
+      <widget text="Off" function="LcdOff" />
+    </folder>
+    <widget text="Enter a word" function="EnterWord" />
+  </folder>
+  <folder text="Camera">
+    <widget text="Take Picture" function="CameraTakePicture" />
+    <widget text="Time Lapse" function="CameraTimeLapse" />
+  </folder>
+  <widget text="Quit" function="DoQuit" />
+  <widget text="Reboot" function="DoReboot" />
+  <widget text="Shutdown" function="DoShutdown" />
+</application>
+
