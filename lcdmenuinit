@@ -1,0 +1,20 @@
+#! /bin/sh
+# /etc/init.d/lcdmenuinit
+
+case "$1" in
+  start)
+    echo "Starting lcdmenu"
+    cd /home/pi/menu_cam
+    sudo /usr/bin/python /home/pi/menu_cam/lcdmenu.py &
+  ;;
+  stop)
+    echo "Stopping lcdmenu"
+    killall python
+    ;;
+  *)
+    echo "Usage: /etc/init.d/lcdmenuinit {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
