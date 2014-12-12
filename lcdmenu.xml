@@ -15,6 +15,10 @@
   <folder text="Camera">
     <widget text="Take Picture" function="CameraTakePicture" />
     <widget text="Time Lapse" function="CameraTimeLapse" />
+    <folder text="Settings">
+      <widget text="awb mode" function="Awb_select" />
+      <widget text="iso" function="Iso_select" />
+    </folder>
   </folder>
   <widget text="Quit" function="DoQuit" />
   <widget text="Reboot" function="DoReboot" />

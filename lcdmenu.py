@@ -34,6 +34,11 @@ lcd = Adafruit_CharLCDPlate(busnum = 1)
 #if lcd.connected == 0:
 #    quit()
 
+awb_choice = 0
+iso_choice = 0
+AWB_MODES = ['off', 'auto', 'sunlight', 'cloudy', 'shade', 'tungsten', 'fluorescent', 'incandescent', 'flash', 'horizon']
+ISO_MODES = ['auto', 100, 200, 320, 400, 500, 640, 800]
+
 lcd.begin(DISPLAY_COLS, DISPLAY_ROWS)
 lcd.backlight(lcd.OFF)
 
@@ -208,15 +213,63 @@ def CameraTakePicture():
     while not lcd.buttonPressed(lcd.LEFT):
         if lcd.buttonPressed(lcd.SELECT):
             with picamera.PiCamera() as camera:
+                camera.awb_mode = AWB_MODES[awb_choice]
+                camera.iso = ISO_MODES[iso_choice]
                 camera.capture('image.jpg')
             lcd.setCursor(0,1)
             lcd.message("Taken")
             sleep(0.5)
             lcd.clear()
             lcd.message("Select to take")
+
+
 def CameraTimeLapse():
     if DEBUG:
         print('in CameraTimeLapse')
+
+def Awb_select():
+    global awb_choice
+    lcd.clear()
+    lcd.message("Select AWB:")
+    while not lcd.buttonPressed(lcd.LEFT):
+        lcd.setCursor(0,1)
+        lcd.message(AWB_MODES[awb_choice])
+        lcd.message("          ")
+        if lcd.buttonPressed(lcd.UP):
+            if awb_choice > 0:
+                awb_choice -=1
+            else:
+                awb_choice = 9
+            sleep(0.5)
+        if lcd.buttonPressed(lcd.DOWN):
+            if awb_choice < 9:
+                awb_choice += 1
+            else:
+                awb_choice = 0
+            sleep(0.5)
+
+def Iso_select():
+    global iso_choice
+    lcd.clear()
+    lcd.message("Select ISO:")
+    while not lcd.buttonPressed(lcd.LEFT):
+        lcd.setCursor(0,1)
+        lcd.message(ISO_MODES[iso_choice])
+        lcd.message("          ")
+        if lcd.buttonPressed(lcd.UP):
+            if iso_choice > 0:
+                iso_choice -=1
+            else:
+                iso_choice = 7
+            sleep(0.5)
+        if lcd.buttonPressed(lcd.DOWN):
+            if iso_choice < 7:
+                iso_choice += 1
+            else:
+                iso_choice = 0
+            sleep(0.5)
+
+        
 
 # Get a word from the UI, a character at a time.
 # Click select to complete input, or back out to the left to quit.
