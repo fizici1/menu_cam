@@ -37,7 +37,7 @@ lcd = Adafruit_CharLCDPlate(busnum = 1)
 awb_choice = 0
 iso_choice = 0
 AWB_MODES = ['off', 'auto', 'sunlight', 'cloudy', 'shade', 'tungsten', 'fluorescent', 'incandescent', 'flash', 'horizon']
-ISO_MODES = ['auto', 100, 200, 320, 400, 500, 640, 800]
+ISO_MODES = [0, 100, 200, 320, 400, 500, 640, 800]
 
 lcd.begin(DISPLAY_COLS, DISPLAY_ROWS)
 lcd.backlight(lcd.OFF)

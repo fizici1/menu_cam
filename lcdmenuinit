@@ -4,8 +4,8 @@
 case "$1" in
   start)
     echo "Starting lcdmenu"
-    cd /home/pi/menu_cam
-    sudo /usr/bin/python /home/pi/menu_cam/lcdmenu.py &
+    cd /home/pi/code/menucam/menu_cam
+    sudo /usr/bin/python /home/pi/code/menucam/menu_cam/lcdmenu.py &
   ;;
   stop)
     echo "Stopping lcdmenu"
